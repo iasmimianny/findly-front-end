@@ -137,7 +137,7 @@ export default function CadastroUsuario() {
           <div className="mt-3 h-1 w-40 bg-[#42a5df]" />
 
           <p className="mt-5 max-w-xl text-base text-gray-500">
-            Preencha as informações abaixo para criar seu cadastro de usuário e vincular seus pontos de convivência e coleta na UNIFIP[cite: 1].
+            Preencha as informações abaixo para criar seu cadastro de usuário e vincular seus pontos de convivência e coleta na UNIFIP.
           </p>
         </div>
 
@@ -385,7 +385,7 @@ export default function CadastroUsuario() {
               Privacidade garantida
             </p>
             <p className="mt-1 text-sm text-gray-600">
-              Seus dados serão utilizados apenas para a autenticação e identificação de ocorrências no campus da UNIFIP[cite: 1].
+              Seus dados serão utilizados apenas para a autenticação e identificação de ocorrências no campus da UNIFIP.
             </p>
           </div>
 
