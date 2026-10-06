@@ -10,59 +10,8 @@ export default function CadastroUsuario() {
   const [telefone, setTelefone] = useState("");
   const [senha, setSenha] = useState("");
 
-  const [curso, setCurso] = useState("");
-  const [setor, setSetor] = useState("");
-  const [bloco, setBloco] = useState("");
-  const [pontoColeta, setPontoColeta] = useState("");
-  const [pontoReferencia, setPontoReferencia] = useState("");
   const [cadastrado, setCadastrado] = useState(false);
 
-  const cursosUNIFIP = [
-    "Análise e Desenvolvimento de Sistemas",
-    "Arquitetura e Urbanismo",
-    "Biomedicina",
-    "Direito",
-    "Educação Física (Bacharelado/Licenciatura)",
-    "Enfermagem",
-    "Engenharia Civil",
-    "Farmácia",
-    "Fisioterapia",
-    "Gestão Hospitalar",
-    "Marketing",
-    "Medicina",
-    "Medicina Veterinária",
-    "Nutrição",
-    "Odontologia",
-    "Pedagogia",
-    "Psicologia",
-    "Radiologia",
-    "Serviço Social",
-    "Sistemas de Informação",
-  ];
-
-  const blocosUNIFIP = [
-    { id: "bloco-a", nome: "Bloco A", descricao: "Medicina, Psicologia e Nutrição" },
-    { id: "bloco-b", nome: "Bloco B", descricao: "Direito" },
-    { id: "bloco-c", nome: "Bloco C", descricao: "Odontologia" },
-    { id: "bloco-d", nome: "Bloco D", descricao: "Educação Física, Fisioterapia, Farmácia e Gestão Hospitalar" },
-    { id: "bloco-e", nome: "Bloco E", descricao: "Biomedicina" },
-    { id: "bloco-f", nome: "Bloco F", descricao: "Medicina" },
-    { id: "bloco-g", nome: "Bloco G", descricao: "Arquitetura e Urbanismo e Enfermagem" },
-    { id: "bloco-h", nome: "Bloco H", descricao: "ADS, Radiologia, Marketing e Serviço Social" },
-    { id: "bloco-i", nome: "Bloco I", descricao: "Policlínica" },
-    { id: "unidade-2", nome: "UNIFIP - Unidade II (Centro)", descricao: "Pedagogia e Sistemas de Informação" },
-  ];
-
-  const pontosDeColeta = [
-    "Secretaria do Bloco H (ADS)",
-    "Biblioteca Central (Campus I)",
-    "Biblioteca Setorial (Campus II - Centro)",
-    "Secretaria do Bloco A",
-    "Secretaria do Bloco B (Direito)",
-    "Coordenação de Educação Física / Fisioterapia (Bloco D)",
-    "Recepção da Policlínica (Bloco I)",
-    "Portaria Principal",
-  ];
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -130,14 +79,13 @@ export default function CadastroUsuario() {
       <div className="mx-auto max-w-6xl px-6 py-10">
         <div className="mb-9">
           <h1 className="text-5xl font-black italic leading-tight">
-            Cadastre seu perfil e<br />
-            localização na UNIFIP:
+            Cadastre seu perfil<br />
           </h1>
 
           <div className="mt-3 h-1 w-40 bg-[#42a5df]" />
 
           <p className="mt-5 max-w-xl text-base text-gray-500">
-            Preencha as informações abaixo para criar seu cadastro de usuário e vincular seus pontos de convivência e coleta na UNIFIP.
+            Preencha as informações abaixo para criar seu cadastro de usuário na UNIFIP.
           </p>
         </div>
 
@@ -146,44 +94,6 @@ export default function CadastroUsuario() {
             <label className="mb-3 block text-lg font-bold italic">
               Vínculo institucional
             </label>
-
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-              <button
-                type="button"
-                onClick={() => setPerfil("aluno")}
-                className={`rounded-xl border px-5 py-4 text-center font-bold italic transition ${
-                  perfil === "aluno"
-                    ? "border-black bg-[#d5d5d5] text-black"
-                    : "border-gray-200 bg-[#f8f8f8] text-gray-500 hover:bg-gray-100"
-                }`}
-              >
-                Aluno
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setPerfil("professor")}
-                className={`rounded-xl border px-5 py-4 text-center font-bold italic transition ${
-                  perfil === "professor"
-                    ? "border-black bg-[#d5d5d5] text-black"
-                    : "border-gray-200 bg-[#f8f8f8] text-gray-500 hover:bg-gray-100"
-                }`}
-              >
-                Professor
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setPerfil("funcionario")}
-                className={`rounded-xl border px-5 py-4 text-center font-bold italic transition ${
-                  perfil === "funcionario"
-                    ? "border-black bg-[#d5d5d5] text-black"
-                    : "border-gray-200 bg-[#f8f8f8] text-gray-500 hover:bg-gray-100"
-                }`}
-              >
-                Funcionário
-              </button>
-            </div>
           </div>
 
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
@@ -263,123 +173,6 @@ export default function CadastroUsuario() {
             </div>
           </div>
 
-          <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2">
-            {(perfil === "aluno" || perfil === "professor") && (
-              <div className="rounded-2xl bg-[#d5d5d5] p-5">
-                <label className="mb-3 flex items-center gap-3 text-lg font-bold italic">
-                  <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-                    <path d="M6 12v5c3 3 9 3 12 0v-5" />
-                  </svg>
-                  {perfil === "aluno" ? "Seu Curso:" : "Curso em que leciona:"}
-                </label>
-
-                <select
-                  value={curso}
-                  onChange={(e) => setCurso(e.target.value)}
-                  className="w-full rounded-xl bg-white px-4 py-4 outline-none"
-                >
-                  <option value="">Selecione o curso</option>
-                  {cursosUNIFIP.map((c, index) => (
-                    <option key={index} value={c}>
-                      {c}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            )}
-
-            {perfil === "funcionario" && (
-              <div className="rounded-2xl bg-[#d5d5d5] p-5">
-                <label className="mb-3 flex items-center gap-3 text-lg font-bold italic">
-                  <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
-                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-                  </svg>
-                  Setor / Departamento de Trabalho:
-                </label>
-
-                <input
-                  type="text"
-                  value={setor}
-                  onChange={(e) => setSetor(e.target.value)}
-                  placeholder="Ex: Secretaria Geral, Biblioteca Central, Portaria"
-                  className="w-full rounded-xl bg-white px-4 py-3 outline-none"
-                />
-              </div>
-            )}
-
-            <div className="rounded-2xl bg-[#d5d5d5] p-5">
-              <label className="mb-3 flex items-center gap-3 text-lg font-bold italic">
-                <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12Z" />
-                  <circle cx="12" cy="9" r="2.5" />
-                </svg>
-                Bloco Frequente no Campus:
-              </label>
-
-              <select
-                value={bloco}
-                onChange={(e) => setBloco(e.target.value)}
-                className="w-full rounded-xl bg-white px-4 py-4 outline-none"
-              >
-                <option value="">Selecione o bloco principal</option>
-                {blocosUNIFIP.map((item) => (
-                  <option key={item.id} value={item.id}>
-                    {item.nome} - ({item.descricao})
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-
-          <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2">
-            <div className="rounded-2xl bg-[#d5d5d5] p-5">
-              <label className="mb-3 flex items-center gap-3 text-lg font-bold italic">
-                <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-                  <circle cx="12" cy="10" r="3" />
-                </svg>
-                Ponto de Coleta preferencial:
-              </label>
-
-              <select
-                value={pontoColeta}
-                onChange={(e) => setPontoColeta(e.target.value)}
-                className="w-full rounded-xl bg-white px-4 py-4 outline-none"
-              >
-                <option value="">Selecione o ponto de entrega/retirada</option>
-                {pontosDeColeta.map((ponto, index) => (
-                  <option key={index} value={ponto}>
-                    {ponto}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div className="rounded-2xl bg-[#d5d5d5] p-5">
-              <label className="mb-3 flex items-center gap-3 text-lg font-bold italic">
-                <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-                  <circle cx="12" cy="10" r="3" />
-                </svg>
-                {perfil === "funcionario" ? "Sala ou Posto Fixo:" : "Sala de aula / Ponto de rotina:"}
-              </label>
-
-              <input
-                type="text"
-                value={pontoReferencia}
-                onChange={(e) => setPontoReferencia(e.target.value)}
-                placeholder={
-                  perfil === "funcionario"
-                    ? "Ex: Guichê 2, Balcão de atendimento"
-                    : "Ex: Sala 102 - 1º Andar, Lab TI 2"
-                }
-                className="w-full rounded-xl bg-white px-4 py-3 outline-none"
-              />
-            </div>
-          </div>
-
           <div className="mt-6 rounded-2xl border border-[#59558a]/20 bg-[#59558a]/10 p-5">
             <p className="font-bold text-[#59558a]">
               Privacidade garantida
@@ -393,12 +186,12 @@ export default function CadastroUsuario() {
             type="submit"
             className="mt-6 w-full rounded-2xl bg-black px-6 py-4 text-lg font-bold italic text-white transition hover:bg-gray-800"
           >
-            Cadastrar usuário ({perfil})
+            Cadastrar
           </button>
 
           {cadastrado && (
             <div className="mt-4 rounded-2xl border border-green-300 bg-green-50 p-4 text-center font-semibold text-green-700">
-              Usuário e ponto de coleta vinculados com sucesso!
+              Usuário vinculado com sucesso!
             </div>
           )}
         </form>
