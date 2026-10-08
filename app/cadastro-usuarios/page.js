@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useState } from "react";
 
 export default function CadastroUsuario() {
-  const [perfil, setPerfil] = useState("aluno");
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [telefone, setTelefone] = useState("");
@@ -52,26 +51,6 @@ export default function CadastroUsuario() {
               <path d="M12 19l-7-7 7-7" />
             </svg>
             Voltar
-          </button>
-
-          <button
-            type="button"
-            className="flex items-center justify-center hover:opacity-70 transition"
-            aria-label="Configurações"
-          >
-            <svg
-              width="28"
-              height="28"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M12 2.5a2 2 0 0 1 2 2v.2a7.5 7.5 0 0 1 1.7.7l.15-.15a2 2 0 1 1 2.83 2.83l-.15.15a7.5 7.5 0 0 1 .7 1.7h.2a2 2 0 1 1 0 4h-.2a7.5 7.5 0 0 1-.7 1.7l.15.15a2 2 0 1 1-2.83 2.83l-.15-.15a7.5 7.5 0 0 1-1.7.7v.2a2 2 0 1 1-4 0v-.2a7.5 7.5 0 0 1-1.7-.7l-.15.15a2 2 0 1 1-2.83-2.83l.15-.15a7.5 7.5 0 0 1-.7-1.7h-.2a2 2 0 1 1 0-4h.2a7.5 7.5 0 0 1 .7-1.7l-.15-.15a2 2 0 1 1 2.83-2.83l.15.15a7.5 7.5 0 0 1 1.7-.7v-.2a2 2 0 0 1 2-2Z" />
-              <circle cx="12" cy="12" r="3" />
-            </svg>
           </button>
         </div>
       </header>
