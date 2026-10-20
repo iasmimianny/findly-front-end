@@ -75,7 +75,7 @@ export default function Dashboard() {
             </Link>
 
             <Link
-              href="/itens-perdidos"
+              href="/cadastro-itens-perdidos"
               className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-[#1e2022] hover:bg-gray-800 transition text-sm font-bold italic text-white"
             >
               <div className="p-1 rounded-full bg-red-500/20 text-red-500">
@@ -85,7 +85,7 @@ export default function Dashboard() {
             </Link>
 
             <Link
-              href="/favoritos"
+              href="/itens-favoritos"
               className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-[#1e2022] hover:bg-gray-800 transition text-sm font-bold italic text-white"
             >
               <div className="p-1 rounded-full bg-amber-500/20 text-amber-400">
